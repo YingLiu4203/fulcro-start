@@ -4,10 +4,10 @@
    [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
    [com.fulcrologic.fulcro.dom :as dom]))
 
-(defsc Person [this {:person/keys [id name age] :as props} {:keys [onDelete]}]
+(defsc Person [_ {:person/keys [id name age] :as props} {:keys [onDelete]}]
   {:query         [:person/id :person/name :person/age] ; (2)
    :ident         (fn [] [:person/id (:person/id props)]) ; (1)
-   :initial-state (fn [{:keys [id name age] :as params}] {:person/id id :person/name name :person/age age})} ; (3)
+   :initial-state (fn [{:keys [id name age]}] {:person/id id :person/name name :person/age age})} ; (3)
   (dom/li
    (dom/h5 (str name " (age: " age ")") (dom/button {:onClick #(onDelete id)} "X")))) ; (4)
 
@@ -24,7 +24,7 @@
 
 (def ui-person-list (comp/factory PersonList))
 
-(defsc Root [this {:keys [friends enemies]}]
+(defsc Root [_ {:keys [friends enemies]}]
   {:query         [{:friends (comp/get-query PersonList)}
                    {:enemies (comp/get-query PersonList)}]
    :initial-state {}}

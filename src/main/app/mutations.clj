@@ -4,7 +4,7 @@
     [com.wsscode.pathom.connect :as pc]
     [taoensso.timbre :as log]))
 
-(pc/defmutation delete-person [env {list-id   :list/id
+(pc/defmutation delete-person [_ {list-id   :list/id
                                     person-id :person/id}]
   ;; Pathom registers these mutations in an index. The key that the mutation is
   ;; indexed by can be overridden with the `::pc/sym`

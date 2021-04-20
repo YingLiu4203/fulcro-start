@@ -7,7 +7,7 @@
     [ring.middleware.resource :refer [wrap-resource]]))
 
 (def ^:private not-found-handler
-  (fn [req]
+  (fn [_]
     {:status  404
      :headers {"Content-Type" "text/plain"}
      :body    "Not Found"}))

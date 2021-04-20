@@ -6,6 +6,8 @@
 *jar
 .DS_Store
 .calva/
+.clj-kondo/*
+!.clj-kondo/config.edn
 .cljs_rhino_repl
 .cpcache/
 .idea
@@ -15,7 +17,8 @@
 .lein-failures
 .lein-plugins/
 .lein-repl-history
-.lsp/
+.lsp/*
+!.lsp/config.edn
 .nrepl*
 .nrepl-port
 .repl
